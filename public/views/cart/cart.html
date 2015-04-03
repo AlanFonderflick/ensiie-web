@@ -31,10 +31,10 @@
 				    </td>
 				    <td data-ng-bind="item.price | currency"></td>
 				    <td>
-				    	<input type="text" />
+				    	<input type="text" data-ng-model="item.quantity" data-ng-init="item.quantity='1'" />
 				    </td>			    
 				    <td>
-				    	<span>0</span>
+				    	<span data-ng-bind="item.price*item.quantity | currency">0</span>
 				    </td>			    
 				    <td>
 				    	<a data-ng-click="removeCart(item.id)"><li class="glyphicon glyphicon-remove" /></a>
@@ -45,6 +45,9 @@
 		</div> 
 
 		<div class="alert alert-danger text-center" data-ng-hide="cart.length">You still have an empty cart !</div>
+
+		<a href="#/" class="btn standard-button">Continue shopping</a>
+		<a href="#/cart" class="btn standard-button pull-right">Update shopping cart</a>
 
 		<!-- Footer -->
 		<nav class="navbar footer">

@@ -26,6 +26,7 @@ angular.module('ecommerce')
   		var isAlreadyAdded = false;
   		var cart = $scope.cart;
 
+  		//only push if it's not already in cart
   		for(var i=0; i< cart.length; i++){
   			if(cart[i].id == shoe.id){
   				isAlreadyAdded = true ;
