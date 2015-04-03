@@ -18,10 +18,10 @@
 					<div class="panel-body">
 						<p>Category</p>
 						<ul class="nav nav-stacked">
-							<li><a data-ng-click="filters.category=''">All</a></li>
-							<li><a data-ng-click="filters.category='blue'">Blue</a></li>
-							<li><a data-ng-click="filters.category='grey'">Grey</a></li>
-							<li><a data-ng-click="filters.category='white'">White</a></li>
+							<li><a ng-class="{'active':filters.category === ''}" data-ng-click="filters.category=''">All</a></li>
+							<li><a ng-class="{'active':filters.category === 'blue'}" data-ng-click="filters.category='blue'">Blue</a></li>
+							<li><a ng-class="{'active':filters.category === 'grey'}" data-ng-click="filters.category='grey'">Grey</a></li>
+							<li><a ng-class="{'active':filters.category === 'white'}" data-ng-click="filters.category='white'">White</a></li>
 						</ul>
 					</div>
 				</div>
@@ -32,27 +32,29 @@
 				<!-- Filtre de sélection -->
 				<div class="panel panel-default" id="filter">
 					<div class="panel-heading">
-						<ul class="navbar navbar-right">
+						<ul class="navbar-right">
 							<a href="#/">Hide options</a>
 							<span class="glyphicon glyphicon-arrow-down"></span>
 						</ul>
 						<h3 class="panel-title">Panel title</h3>
 					</div>
 					<div class="panel-body">
-						<span class="glyphicon glyphicon-th-large"></span>
-						<span class="glyphicon glyphicon-th-list"></span>
-						
-						<form class="navbar-form navbar-left">
-						  <div class="form-group">
-						      <label for="sel1">Show</label>
-							  <select class="form-control" id="sel1" data-ng-model="quantity" data-ng-options="k as v for (k,v) in {'6':6,'4':4,'2':2}" data-ng-init="quantity='6'">
-							  </select>
-							  <label for="sel1">Sort by</label>
-							  <select class="form-control" id="sel2" data-ng-model="sort" data-ng-options="k as v for (k,v) in {'+name': 'Name: A-Z','-name': 'Name: Z-A', '-price': 'Highest price', '+price': 'Lowest price'}" data-ng-init="sort='+name'">
-							  </select>  
-						  </div>
+						<span class="glyphicon glyphicon-th-large pull-left"></span>
+						<span class="glyphicon glyphicon-th-list pull-left"></span>
+						<span class="glyphicon glyphicon-arrow-up pull-right"></span>
+						<form class="form-inline">
+						  	<div class="form-group pull-right">
+						      	<label for="sel1">Show</label>
+							  	<select class="form-control" id="sel1" data-ng-model="quantity" data-ng-options="k as v for (k,v) in {'6':6,'4':4,'2':2}" data-ng-init="quantity='6'">
+							  	</select>
+						  	</div>
+						 	<div class="form-group pull-right">							  
+							 	 <label for="sel1">Sort by</label>
+							 	 <select class="form-control" id="sel2" data-ng-model="sort" data-ng-options="k as v for (k,v) in {'+name': 'Name: A-Z','-name': 'Name: Z-A', '-price': 'Highest price', '+price': 'Lowest price'}" data-ng-init="sort='+name'">
+							 	 </select>  
+							</div>
 						</form>
-						<span class="glyphicon glyphicon-arrow-up"></span>
+						
 					</div>
 				</div>
 

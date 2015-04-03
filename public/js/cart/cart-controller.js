@@ -10,7 +10,6 @@ angular.module('ecommerce')
 
     $scope.removeCart = function(id){
 
-
       var index = -1;   
       var comArr = eval( $scope.cart );
       for( var i = 0; i < comArr.length; i++ ) {

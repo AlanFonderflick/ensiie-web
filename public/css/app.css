@@ -220,11 +220,17 @@ a:hover, a:active, a:focus, a:visited {
 	text-transform: uppercase;
 }
 
+#filter .form-control {
+	width: 200px;
+	margin-right:20px;
+}
+
 .footer {
 	background: white;
 	margin: 0;
 	padding: 0;
 	text-align: center;
+	margin-top:50px;
 }
 
 .footer-content {
@@ -241,4 +247,25 @@ a:hover, a:active, a:focus, a:visited {
 
 table img {
 	width : 90px;
+}
+
+ .price {
+    color:red;
+    font-weight: bold;
+}
+tr {
+    background-color: #ffffff;
+    border: 1px #DDD solid;
+}
+
+tr:first-child {
+    background-color: #F2505A;
+    color: #ffffff;
+}
+
+.active {
+	color: #333;
+}
+.active:before {
+	content:'> ';
 }

@@ -1,75 +1,135 @@
-<div data-ng-controller="HomeController">
-        <!-- Fil d'ariane -->
-        <ol class="breadcrumb">
-          <li><a href="#/">Home</a></li>
-          <li><a href="#/">His</a></li>
-          <li class="active">Catalogue</li>
-        </ol>
+<div>
 
-        <!-- Corps de page -->
-        <div class="row">
+    <h2>Users</h2>
 
-            <!-- Menu latéral -->
-            <div class="col-md-3">
-                <div class="panel panel-default" id="side-menu">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Shop by</h3>
-                    </div>  
-                    <div class="panel-body">
-                        <p>Category</p>
-                        <ul class="nav nav-stacked">
-                            <li><a data-ng-click="filters.category=''">All</a></li>
-                            <li><a data-ng-click="filters.category='blue'">Blue</a></li>
-                            <li><a data-ng-click="filters.category='grey'">Grey</a></li>
-                            <li><a data-ng-click="filters.category='white'">White</a></li>
-                        </ul>
-                    </div>
-                </div>
+    <script type = "text/ng-template" id="user-save.html">
+        <form name="form" role="form" novalidate
+              class="ng-scope ng-invalid ng-invalid-required ng-dirty"
+              ng-submit="ok()">
+
+            <div class="modal-header">
+                <button type="button" class="close"
+                        ng-click="cancel()">&times;</button>
+                <h4 class="modal-title" id="myUserLabel">Create or edit a User</h4>
             </div>
-        <!-- Contenu principal -->
-            <div class="col-md-9">
-
-                <!-- Filtre de sélection -->
-                <div class="panel panel-default" id="filter">
-                    <div class="panel-heading">
-                        <ul class="navbar navbar-right">
-                            <a href="#/">Hide options</a>
-                            <span class="glyphicon glyphicon-arrow-down"></span>
-                        </ul>
-                        <h3 class="panel-title">Panel title</h3>
-                    </div>
-                    <div class="panel-body">
-                        <span class="glyphicon glyphicon-th-large"></span>
-                        <span class="glyphicon glyphicon-th-list"></span>
-                        
-                        <form class="navbar-form navbar-left">
-                          <div class="form-group">
-                              <label for="sel1">Show</label>
-                              <select class="form-control" id="sel1" data-ng-model="quantity" data-ng-options="k as v for (k,v) in {'6':6,'4':4,'2':2}" data-ng-init="quantity='6'">
-                              </select>
-                              <label for="sel1">Sort by</label>
-                              <select class="form-control" id="sel2" data-ng-model="sort" data-ng-options="k as v for (k,v) in {'+name': 'Name: A-Z','-name': 'Name: Z-A', '-price': 'Highest price', '+price': 'Lowest price'}" data-ng-init="sort='+name'">
-                              </select>  
-                          </div>
-                        </form>
-                        <span class="glyphicon glyphicon-arrow-up"></span>
-                    </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" class="form-control" name="id"
+                           ng-model="user.id" readonly>
                 </div>
 
-                <!-- Catalogue -->
-                <div class="row" id="product_list">
-                  <div class="col-sm-6 col-md-4" data-ng-repeat="shoe in shoes | filter:filters | orderBy:sort | limitTo:quantity | filter:$parent.searchText track by shoe.id" >
-                    <div class="thumbnail">
-                      <img data-ng-src="img/{{shoe.image}}" alt="{{shoe.name}}">
-                      <div class="caption">
-                        <p><a href="#/" class="description" data-ng-bind="shoe.description | limitTo:65"></a></p>
-                        <span class="price" data-ng-bind="shoe.price | currency"></span>
-                        <p><a data-ng-click="addCart(shoe)" class="btn standard-button" role="button">Add to cart</a> <img src="img/2015---TP-WEB---IHM-export_26.png"><img src="img/2015---TP-WEB---IHM-export_30.png"> </p>
-                      </div>
-                    </div>
-                  </div>
-                </div> <!-- fin row catalogue -->
-            </div> <!-- fin col contenu principal -->   
+                
+                <div class="form-group">
+                    <label>nom:</label>
+                    
+                    <input type="text" class="form-control" name="nom"
+                           ng-model="user.nom" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.nom.$error.minlength">Must be at least  characters.</span>
+                    <span class="error" ng-show="form.nom.$error.maxlength">Must be at most  characters.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>firstname:</label>
+                    
+                    <input type="text" class="form-control" name="firstname"
+                           ng-model="user.firstname" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.firstname.$error.minlength">Must be at least  characters.</span>
+                    <span class="error" ng-show="form.firstname.$error.maxlength">Must be at most  characters.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>phone:</label>
+                    
+                    <input type="text" class="form-control" name="phone"
+                           ng-model="user.phone" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.phone.$error.minlength">Must be at least  characters.</span>
+                    <span class="error" ng-show="form.phone.$error.maxlength">Must be at most  characters.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>mail:</label>
+                    
+                    <input type="text" class="form-control" name="mail"
+                           ng-model="user.mail" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.mail.$error.minlength">Must be at least  characters.</span>
+                    <span class="error" ng-show="form.mail.$error.maxlength">Must be at most  characters.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>password:</label>
+                    
+                    <input type="text" class="form-control" name="password"
+                           ng-model="user.password" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.password.$error.minlength">Must be at least  characters.</span>
+                    <span class="error" ng-show="form.password.$error.maxlength">Must be at most  characters.</span>
+                </div>
+                
 
-        </div> 
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="cancel()">Cancel
+                </button>
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </script>
+
+    <button class="btn btn-primary btn-lg" ng-click="create()">
+        <span class="glyphicon glyphicon-flash"></span> Create a new User
+    </button>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                
+                <th>nom</th>
+                
+                <th>firstname</th>
+                
+                <th>phone</th>
+                
+                <th>mail</th>
+                
+                <th>password</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="user in users">
+                <td>{{user.id}}</td>
+                
+                <td>{{user.nom }}</td>
+                
+                <td>{{user.firstname }}</td>
+                
+                <td>{{user.phone }}</td>
+                
+                <td>{{user.mail }}</td>
+                
+                <td>{{user.password }}</td>
+                
+                <td>
+                    <button type="submit"
+                            ng-click="update(user.id)"
+                            class="btn">
+                        <span class="glyphicon glyphicon-pencil"></span> Edit
+                    </button>
+                    <button type="submit"
+                            ng-click="delete(user.id)"
+                            class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
