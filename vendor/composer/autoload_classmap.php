@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Shoe' => $baseDir . '/models/Shoe.php',
+    'User' => $baseDir . '/models/User.php',
 );

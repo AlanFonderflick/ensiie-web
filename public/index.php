@@ -94,5 +94,63 @@ $app->delete('/ecommerce/shoes/:id', function($id) use($app) {
 });
 
 
+$app->get('/ecommerce/users', function() {
+    $users = User::all();
+    echo $users->toJson();
+});
+
+$app->get('/ecommerce/users/:id', function($id) use($app) {
+    $user = User::find($id);
+    if (is_null($user)) {
+        $app->response->status(404);
+        $app->stop();
+    }
+    echo $user->toJson();    
+});
+
+$app->post('/ecommerce/users', function() use($app) {
+    $body = $app->request->getBody();
+    $obj = json_decode($body);
+    $user = new User;
+    
+    $user->nom = $obj->{'nom'};
+    $user->firstname = $obj->{'firstname'};
+    $user->phone = $obj->{'phone'};
+    $user->mail = $obj->{'mail'};
+    $user->password = $obj->{'password'};
+    $user->save();
+    $app->response->status(201);
+    echo $user->toJson();    
+});
+
+$app->put('/ecommerce/users/:id', function($id) use($app) {
+    $body = $app->request->getBody();
+    $obj = json_decode($body);
+    $user = User::find($id);
+    if (is_null($user)) {
+        $app->response->status(404);
+        $app->stop();
+    }
+    
+    $user->nom = $obj->{'nom'};
+    $user->firstname = $obj->{'firstname'};
+    $user->phone = $obj->{'phone'};
+    $user->mail = $obj->{'mail'};
+    $user->password = $obj->{'password'};
+    $user->save();
+    echo $user->toJson();    
+});
+
+$app->delete('/ecommerce/users/:id', function($id) use($app) {
+    $user = User::find($id);
+    if (is_null($user)) {
+        $app->response->status(404);
+        $app->stop();
+    }
+    $user->delete();
+    $app->response->status(204);
+});
+
+
 
 $app->run();

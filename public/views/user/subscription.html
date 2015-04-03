@@ -1,0 +1,103 @@
+<div data-ng-controller="HomeController">
+		<!-- Fil d'ariane -->
+		<ol class="breadcrumb">
+		  <li><a href="#/">Home</a></li>
+		  <li><a href="#/">His</a></li>
+		  <li class="active">Checkout</li>
+		</ol>
+
+		<!-- Corps de page -->
+		<div class="row">
+
+			<!-- Menu latéral -->
+			<div class="col-md-3">
+				<div class="panel panel-default" id="side-menu">
+					<div class="panel-heading">
+						<h3 class="panel-title">Checkout progress</h3>
+					</div>	
+					<div class="panel-body">
+						<ul class="nav nav-stacked">
+							<li><a>Billing adress</a></li>
+							<li><a>Shipping adress</a></li>
+							<li><a>Shipping method</a></li>
+							<li><a>Payment Method</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		<!-- Contenu principal -->
+			<div class="col-md-4">
+
+
+				<!-- Inscription -->
+				<div class="row" id="product_list">
+					<ol>
+					<li>	
+					<h3>Checkout method</h3>
+					<p><strong>Checkout as a guest or Register</strong></p>
+					<p>Register with us for convenience.</p>
+
+					<form> 
+				    	<div class="radio">
+							<label for="guest">Checkout as a guest</label>
+					      	<input id="guest" type="radio" name="content" ng-model="content" value="guest">
+					    </div>
+					    <div class="radio">	
+					      <label for="register">Register</label>
+					      <input id="register" type="radio" name="content" ng-model="content" value="register">
+				  		</div>
+				    </form>
+
+					<form ng-show="content == 'register'">
+					  <div class="form-group">
+					    <label for="exampleInputEmail1">Email address</label>
+					    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+					  </div>
+					  <div class="form-group">
+					    <label for="name">Name</label>
+					    <input type="text" class="form-control" id="name" placeholder="Enter name">
+					  </div>	
+					  <div class="form-group">
+					    <label for="first-name">First name</label>
+					    <input type="text" class="form-control" id="firstname" placeholder="Enter first name">
+					  </div>	
+					  <div class="form-group">
+					    <label for="phone">Phone</label>
+					    <input type="phone" class="form-control" id="phone" placeholder="Enter phone">
+					  </div>					  				  				  
+					  <div class="form-group">
+					    <label for="exampleInputPassword1">Password</label>
+					    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+					  </div>
+					  <button type="submit" class="btn standard-button">Subscribe</button>
+					</form>
+					</li>
+					<li><h3>Billing information</h3></li>
+					<li><h3>Shipping information</h3></li>
+					<li><h3>Shipping method</h3></li>
+					<li><h3>Payment information</h3></li>
+					<li><h3>Order review</h3></li>
+
+
+
+				</div> <!-- fin inscription -->
+			</div> <!-- fin	col contenu principal -->	
+			<div class="col-md-5">
+					<p><strong>Login</strong></p>
+					<p>Already registered ? Please login below.</p>
+					<form>
+					  <div class="form-group">
+					    <label for="exampleInputEmail1">Email address</label>
+					    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+					  </div>
+					  <div class="form-group">
+					    <label for="exampleInputPassword1">Password</label>
+					    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+					  </div>
+					  <button type="submit" class="btn standard-button">login</button>
+					</form>
+
+			</div>
+
+		</div> 
+</div>
