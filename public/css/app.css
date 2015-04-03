@@ -238,3 +238,7 @@ a:hover, a:active, a:focus, a:visited {
 .payment-methods {
 
 }
+
+table img {
+	width : 90px;
+}
