@@ -5,5 +5,8 @@ angular.module('ecommerce', ['ngResource', 'ngRoute', 'ui.bootstrap', 'ui.date']
       .when('/', {
         templateUrl: 'views/home/home.html', 
         controller: 'HomeController'})
+      .when('/cart', {
+        templateUrl: 'views/cart/cart.html', 
+        controller: 'CartController'})
       .otherwise({redirectTo: '/'});
   }]);

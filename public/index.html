@@ -81,9 +81,9 @@
             <a href="#">MY ACCOUNT</a> 
             <span>Welcome costumer (log in)</span>
           </li>
-          <li class="col-md-3" id="cart">
+          <li class="col-md-3" id="cart" data-ng-controller="CartController">
             <img src="./img/shop.png" alt="Cart" />
-            <a href="#">0</a> 
+            <a data-ng-bind="cart.length" data-ng-href="#/cart"></a> 
             <span>item(s)</span>
           </li>             
         </ul>
@@ -147,6 +147,9 @@
 <!--   // <script src="js/user/user-controller.js"></script>
   // <script src="js/user/user-router.js"></script>
   // <script src="js/user/user-service.js"></script> -->
+  <script src="js/cart/cart-service.js"></script>
+  <script src="js/cart/cart-controller.js"></script>
+  <script src="js/cart/cart-router.js"></script>
   <script src="js/shoe/shoe-controller.js"></script>
   <script src="js/shoe/shoe-router.js"></script>
   <script src="js/shoe/shoe-service.js"></script>

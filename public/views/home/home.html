@@ -62,9 +62,9 @@
 				    <div class="thumbnail">
 				      <img data-ng-src="img/{{shoe.image}}" alt="{{shoe.name}}">
 				      <div class="caption">
-				        <p><a href="#" class="description" data-ng-bind="shoe.description | limitTo:65"></a> [...]</p>
+				        <p><a href="#" class="description" data-ng-bind="shoe.description | limitTo:65"></a></p>
 				        <span class="price" data-ng-bind="shoe.price | currency"></span>
-				        <p><a href="#" class="btn standard-button" role="button">Add to cart</a> <img src="img/2015---TP-WEB---IHM-export_26.png"><img src="img/2015---TP-WEB---IHM-export_30.png"> </p>
+				        <p><a data-ng-click="addCart(shoe)" class="btn standard-button" role="button">Add to cart</a> <img src="img/2015---TP-WEB---IHM-export_26.png"><img src="img/2015---TP-WEB---IHM-export_30.png"> </p>
 				      </div>
 				    </div>
 				  </div>
