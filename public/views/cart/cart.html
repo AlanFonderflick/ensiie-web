@@ -20,7 +20,7 @@
 					<th>Subtotal</th>
 					<th />
 				</tr>
-				<tr ng-repeat="item in cart" class="media media-middle">
+				<tr ng-repeat="item in cart track by item.id" class="media media-middle">
 				  	<td>
 				  		<img data-ng-src="img/{{item.image}}" class="media-object" alt="{{item.name}}" />
 				  	</td>

@@ -15,7 +15,6 @@ angular.module('ecommerce')
 
   	$scope.searchText=''; //not fixed
 
-
   	//
   	//Cart management
   	//
@@ -23,8 +22,19 @@ angular.module('ecommerce')
   	$scope.cart = Cart.getCart();
 
   	$scope.addCart = function(shoe){
-  		$scope.cart.push(shoe);
-  		Cart.setCart($scope.cart);
+
+  		var isAlreadyAdded = false;
+  		var cart = $scope.cart;
+
+  		for(var i=0; i< cart.length; i++){
+  			if(cart[i].id == shoe.id){
+  				isAlreadyAdded = true ;
+  			}
+  		}
+  		if(!isAlreadyAdded){
+	  		$scope.cart.push(shoe);
+	  		Cart.setCart($scope.cart);
+  		}
   	}
 
   }]);
