@@ -1,0 +1,145 @@
+<div data-ng-controller="HomeController">
+		<!-- Fil d'ariane -->
+		<ol class="breadcrumb">
+		  <li><a href="#">Home</a></li>
+		  <li><a href="#">His</a></li>
+		  <li class="active">Catalogue</li>
+		</ol>
+
+		<!-- Corps de page -->
+		<div class="row">
+
+			<!-- Menu latéral -->
+			<div class="col-md-3">
+				<div class="panel panel-default" id="side-menu">
+					<div class="panel-heading">
+						<h3 class="panel-title">Shop by</h3>
+					</div>	
+					<div class="panel-body">
+						<p>Category</p>
+						<ul class="nav nav-stacked">
+							<li><a data-ng-click="filters.category=''">All</a></li>
+							<li><a data-ng-click="filters.category='blue'">Blue</a></li>
+							<li><a data-ng-click="filters.category='grey'">Grey</a></li>
+							<li><a data-ng-click="filters.category='white'">White</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		<!-- Contenu principal -->
+			<div class="col-md-9">
+
+				<!-- Filtre de sélection -->
+				<div class="panel panel-default" id="filter">
+					<div class="panel-heading">
+						<ul class="navbar navbar-right">
+							<a href="#">Hide options</a>
+							<span class="glyphicon glyphicon-arrow-down"></span>
+						</ul>
+						<h3 class="panel-title">Panel title</h3>
+					</div>
+					<div class="panel-body">
+						<span class="glyphicon glyphicon-th-large"></span>
+						<span class="glyphicon glyphicon-th-list"></span>
+						
+						<form class="navbar-form navbar-left">
+						  <div class="form-group">
+						      <label for="sel1">Show</label>
+							  <select class="form-control" id="sel1" data-ng-model="quantity" data-ng-options="k as v for (k,v) in {'6':6,'4':4,'2':2}" data-ng-init="quantity='6'">
+							  </select>
+							  <label for="sel1">Sort by</label>
+							  <select class="form-control" id="sel2" data-ng-model="sort" data-ng-options="k as v for (k,v) in {'+name': 'Name: A-Z','-name': 'Name: Z-A', '-price': 'Highest price', '+price': 'Lowest price'}" data-ng-init="sort='+name'">
+							  </select>  
+						  </div>
+						</form>
+						<span class="glyphicon glyphicon-arrow-up"></span>
+					</div>
+				</div>
+
+				<!-- Catalogue -->
+				<div class="row" id="product_list">
+				  <div class="col-sm-6 col-md-4" data-ng-repeat="shoe in shoes | filter:filters | orderBy:sort | limitTo:quantity | filter:$parent.searchText track by shoe.id" >
+				    <div class="thumbnail">
+				      <img data-ng-src="img/{{shoe.image}}" alt="{{shoe.name}}">
+				      <div class="caption">
+				        <p><a href="#" class="description" data-ng-bind="shoe.description | limitTo:65"></a> [...]</p>
+				        <span class="price" data-ng-bind="shoe.price | currency"></span>
+				        <p><a href="#" class="btn standard-button" role="button">Add to cart</a> <img src="img/2015---TP-WEB---IHM-export_26.png"><img src="img/2015---TP-WEB---IHM-export_30.png"> </p>
+				      </div>
+				    </div>
+				  </div>
+				</div> <!-- fin row catalogue -->
+			</div> <!-- fin	col contenu principal -->	
+
+		</div> 
+
+		<!-- Footer -->
+		<nav class="navbar footer">
+			<div class="row">
+				<div class="collapse navbar-collapse">
+					<div class="col-md-2 footer-content">
+						<h3>ABOUT US</h3>
+
+						<p>Lorem ipsum</p>
+					</div>
+					<div class="col-md-2 footer-content">
+						<h3>GUARANTEE</h3>
+
+						<ul>
+							<li>Security</li>
+							<li>Quality</li>
+							<li>Support</li>
+							<li>Value for money</li>
+						</ul>
+					</div>
+					<div class="col-md-2 footer-content">
+						<h3>GUARANTEE</h3>
+
+						<ul>
+							<li>Security</li>
+							<li>Quality</li>
+							<li>Support</li>
+							<li>Value for money</li>
+						</ul>
+					</div>
+					<div class="col-md-2 footer-content">
+						<h3>GUARANTEE</h3>
+
+						<ul>
+							<li>Security</li>
+							<li>Quality</li>
+							<li>Support</li>
+							<li>Value for money</li>
+						</ul>
+					</div>
+					<div class="col-md-2 footer-content">
+						<h3>GUARANTEE</h3>
+
+						<ul>
+							<li>Security</li>
+							<li>Quality</li>
+							<li>Support</li>
+							<li>Value for money</li>
+						</ul>
+					</div>
+					<div class="col-md-2 footer-content">
+						<h3>GUARANTEE</h3>
+
+						<ul>
+							<li>Security</li>
+							<li>Quality</li>
+							<li>Support</li>
+							<li>Value for money</li>
+						</ul>
+					</div>																				
+				</div>
+			</div>
+			<div class="row col-md-12 payment-methods">
+				<img src="img/2015---TP-WEB---IHM-export_49.png" alt="Test" />
+				<img src="img/2015---TP-WEB---IHM-export_52.png" alt="Test" />
+				<img src="img/2015---TP-WEB---IHM-export_52.png" alt="Test" />
+				<img src="img/2015---TP-WEB---IHM-export_55.png" alt="Test" />
+				<img src="img/2015---TP-WEB---IHM-export_46.png" alt="Test" />
+			</div>
+		</nav> <!-- fin Footer -->
+</div>
